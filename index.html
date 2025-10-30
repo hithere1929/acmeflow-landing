@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="AcmeFlow automates your team's workflows across Slack, Notion, Google Sheets and more. Start a free trial or request a demo." />
+    <title>AcmeFlow – Automate your workflow in minutes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary">
+      <div class="container header-inner">
+        <a class="logo" href="#home" aria-label="AcmeFlow home">
+          <img src="assets/logo.svg" alt="AcmeFlow logo" width="132" height="28" />
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+          <ul class="nav-links" id="desktop-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="mobile-menu" id="mobile-menu">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <h1 id="hero-title">Automate your workflow in minutes.</h1>
+            <p class="subtext">AcmeFlow helps your team eliminate manual work and focus on growth.</p>
+            <div class="hero-ctas">
+              <a href="#pricing" class="btn btn-primary" data-track="start_trial">Start Free Trial</a>
+              <a href="#contact" class="btn btn-outline" data-track="request_demo">Request Demo</a>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img src="assets/dashboard.svg" alt="AcmeFlow dashboard screenshot" width="720" height="480" loading="eager" />
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section features" aria-labelledby="features-title">
+        <div class="container">
+          <h2 id="features-title" class="section-title">Key Features</h2>
+          <div class="feature-grid reveal">
+            <article class="card feature">
+              <img src="assets/icon-zap.svg" alt="Automation icon" width="48" height="48" />
+              <h3>Automated Workflows</h3>
+              <p>Build multi-step automations that connect Slack, Notion, Google Sheets, and more.</p>
+            </article>
+            <article class="card feature">
+              <img src="assets/icon-sync.svg" alt="Sync icon" width="48" height="48" />
+              <h3>Real-time Sync</h3>
+              <p>Keep your data up to date across all tools with reliable, bi-directional syncs.</p>
+            </article>
+            <article class="card feature">
+              <img src="assets/icon-bell.svg" alt="Bell icon" width="48" height="48" />
+              <h3>Smart Reminders</h3>
+              <p>Automated nudges and approvals so nothing slips through the cracks.</p>
+            </article>
+            <article class="card feature">
+              <img src="assets/icon-lock.svg" alt="Lock icon" width="48" height="48" />
+              <h3>Enterprise-grade Security</h3>
+              <p>SSO, encryption at rest and in transit, and granular access controls.</p>
+            </article>
+            <article class="card feature">
+              <img src="assets/icon-cog.svg" alt="Settings icon" width="48" height="48" />
+              <h3>No-code Builder</h3>
+              <p>Drag-and-drop steps to launch automations in minutes—no engineers required.</p>
+            </article>
+            <article class="card feature">
+              <img src="assets/icon-chart.svg" alt="Analytics icon" width="48" height="48" />
+              <h3>Analytics</h3>
+              <p>Track runs, success rates, and time saved to prove ROI to stakeholders.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section stats" aria-label="Product statistics">
+        <div class="container stats-grid reveal">
+          <div class="stat">
+            <div class="metric">12,000+</div>
+            <div class="label">active teams</div>
+          </div>
+          <div class="stat">
+            <div class="metric">98%</div>
+            <div class="label">satisfaction rate</div>
+          </div>
+          <div class="stat">
+            <div class="metric">4.9/5</div>
+            <div class="label">average rating</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section pricing" aria-labelledby="pricing-title">
+        <div class="container">
+          <h2 id="pricing-title" class="section-title">Plans for every team size</h2>
+          <div class="pricing-grid reveal">
+            <article class="card pricing-card">
+              <h3>Starter</h3>
+              <div class="price">$9<span>/mo</span></div>
+              <ul class="list">
+                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> 5 active workflows</li>
+                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> 1,000 runs/month</li>
+                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> Community support</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary" data-track="pricing_starter">Get Started</a>
+            </article>
+            <article class="card pricing-card featured" aria-label="Most popular plan">
+              <div class="badge">Most Popular</div>
+              <h3>Growth</h3>
+              <div class="price">$29<span>/mo</span></div>
+              <ul class="list">
+                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> 20 active workflows</li>
+                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> 10,000 runs/month</li>
+                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> Email support</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary" data-track="pricing_growth">Get Started</a>
+            </article>
+            <article class="card pricing-card">
+              <h3>Business</h3>
+              <div class="price">$99<span>/mo</span></div>
+              <ul class="list">
+                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> Unlimited workflows</li>
+                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> 100,000 runs/month</li>
+                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> Priority support</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary" data-track="pricing_business">Get Started</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonials" aria-labelledby="testimonials-title">
+        <div class="container">
+          <h2 id="testimonials-title" class="section-title">Trusted by teams worldwide</h2>
+          <div class="testimonial-grid reveal">
+            <figure class="card testimonial">
+              <img class="avatar" src="assets/avatar-1.svg" alt="Photo of Priya Shah" width="64" height="64" />
+              <blockquote>
+                <em>“AcmeFlow saves us hours every week. Our approvals are automatic now.”</em>
+              </blockquote>
+              <figcaption>Priya Shah, Product Lead at Northstar</figcaption>
+            </figure>
+            <figure class="card testimonial">
+              <img class="avatar" src="assets/avatar-2.svg" alt="Photo of Marco Ruiz" width="64" height="64" />
+              <blockquote>
+                <em>“Setup took minutes. The ROI was immediate once we connected our stack.”</em>
+              </blockquote>
+              <figcaption>Marco Ruiz, Ops Manager at BrightPath</figcaption>
+            </figure>
+            <figure class="card testimonial">
+              <img class="avatar" src="assets/avatar-3.svg" alt="Photo of Lina Park" width="64" height="64" />
+              <blockquote>
+                <em>“The reliability and support are outstanding. Our data is always in sync.”</em>
+              </blockquote>
+              <figcaption>Lina Park, CTO at Kinetico</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact" aria-labelledby="contact-title">
+        <div class="container contact-inner">
+          <h2 id="contact-title" class="section-title">Contact our team</h2>
+          <form id="contact-form" novalidate>
+            <div class="grid-2">
+              <div class="form-field">
+                <label for="fullName">Full Name</label>
+                <input id="fullName" name="fullName" type="text" autocomplete="name" required />
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="grid-2">
+              <div class="form-field">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" autocomplete="organization" />
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+              <div class="form-field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <p class="field-error" aria-live="polite"></p>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit" aria-label="Send Message">Send Message</button>
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-labelledby="footer-title">
+      <div class="container footer-inner">
+        <div class="footer-col">
+          <h3 id="footer-title" class="footer-logo">
+            <img src="assets/logo-mark.svg" alt="AcmeFlow mark" width="28" height="28" />
+            AcmeFlow
+          </h3>
+          <p>Connect your tools, automate tasks, and focus on what matters.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Follow</h4>
+          <div class="socials">
+            <a href="#" aria-label="LinkedIn">
+              <img src="assets/icon-linkedin.svg" alt="LinkedIn" width="20" height="20" />
+            </a>
+            <a href="#" aria-label="Twitter">
+              <img src="assets/icon-twitter.svg" alt="Twitter" width="20" height="20" />
+            </a>
+            <a href="#" aria-label="GitHub">
+              <img src="assets/icon-github.svg" alt="GitHub" width="20" height="20" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="container copyright">© 2025 AcmeFlow Technologies. All rights reserved.</div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
+
+
