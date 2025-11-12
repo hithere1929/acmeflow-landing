@@ -1,256 +1,296 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="AcmeFlow automates your team's workflows across Slack, Notion, Google Sheets and more. Start a free trial or request a demo." />
-    <title>AcmeFlow – Automate your workflow in minutes</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header" aria-label="Primary">
-      <div class="container header-inner">
-        <a class="logo" href="#home" aria-label="AcmeFlow home">
-          <img src="assets/logo.svg" alt="AcmeFlow logo" width="132" height="28" />
-        </a>
-        <nav class="nav" aria-label="Main navigation">
-          <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </button>
-          <ul class="nav-links" id="desktop-menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <div class="mobile-menu" id="mobile-menu">
-            <a href="#home">Home</a>
-            <a href="#features">Features</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </nav>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vaibhava — My Rainbow Story</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#0b1220;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --accent:#ff2d95;
+      --rainbow: linear-gradient(90deg,#ff3b30,#ff9f0a,#ffd60a,#32d74b,#0aa5ff,#5e5ce6,#ff2d95);
+      --radius:14px;
+      --shadow:0 12px 28px rgba(16,24,40,0.08);
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box}
+    .wrap{max-width:1100px;margin:36px auto;padding:28px}
+    header{display:flex;gap:20px;align-items:center}
+    .logo{width:92px;height:92px;border-radius:18px;background:var(--rainbow);display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:28px;box-shadow:var(--shadow)}
+    h1{margin:0;font-size:30px}
+    .lead{margin:6px 0 18px;color:var(--muted);font-size:15px}
+
+    nav{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+    .chip{background:linear-gradient(180deg,#ffffff,#fff7fb);border:1px solid rgba(16,24,40,0.04);padding:10px 14px;border-radius:999px;cursor:pointer;font-weight:600;color:var(--text);box-shadow:0 6px 18px rgba(16,24,40,0.04);transition:transform .18s ease,box-shadow .18s ease}
+    .chip:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(16,24,40,0.08)}
+    .chip.active{background:var(--accent);color:white;box-shadow:0 18px 48px rgba(242,38,89,0.12)}
+
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:28px}
+    .content{padding:8px}
+    .aside{position:sticky;top:28px;height:max-content}
+
+    .stage{background:var(--card);border-radius:var(--radius);padding:22px;margin-bottom:18px;box-shadow:var(--shadow);opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .stage.visible{opacity:1;transform:none}
+    h2{color:var(--accent);margin-top:0}
+    p{line-height:1.6;color:var(--text);margin:12px 0}
+
+    .meta-row{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:13px}
+    .quote{margin:14px 0;padding:14px;border-radius:10px;background:linear-gradient(90deg,#fff0f6,#fff);border-left:6px solid var(--accent);font-style:italic;color:#2b2b2b}
+
+    .diary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    .diary{padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fffef8);border:1px solid rgba(16,24,40,0.03)}
+
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+    .photo{height:80px;border-radius:8px;background:linear-gradient(135deg,#ffc7e7,#c7e6ff);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+
+    .card{background:linear-gradient(180deg,#fff,#fffaf6);border-radius:14px;padding:16px;box-shadow:var(--shadow);border:1px solid rgba(16,24,40,0.03)}
+    .profile{display:flex;gap:12px;align-items:center}
+    .avatar{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#ff3b8d,#7a3cff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+
+    .rainbow-bar{position:fixed;left:16px;bottom:16px;height:8px;width:calc(100% - 32px);background:var(--rainbow);border-radius:999px;box-shadow:0 8px 30px rgba(16,24,40,0.08);pointer-events:none}
+
+    .modal{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;align-items:center;justify-content:center;padding:20px}
+    .modal.open{display:flex}
+    .modal .box{width:min(900px,96%);background:white;border-radius:12px;padding:20px;box-shadow:0 20px 60px rgba(2,6,23,0.4)}
+
+    @media(max-width:980px){.grid{grid-template-columns:1fr}.aside{position:static}.diary-grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+  <div class="rainbow-bar" aria-hidden="true"></div>
+  <main class="wrap" id="app">
+    <header>
+      <div class="logo">VP</div>
+      <div>
+        <h1>My Name is Vaibhava</h1>
+        <div class="lead">A first-person account. I tell how I found myself, how I fell for Terry Liang, and how my life opened like color.</div>
       </div>
     </header>
 
-    <main id="home">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="container hero-inner">
-          <div class="hero-copy">
-            <h1 id="hero-title">Automate your workflow in minutes.</h1>
-            <p class="subtext">AcmeFlow helps your team eliminate manual work and focus on growth.</p>
-            <div class="hero-ctas">
-              <a href="#pricing" class="btn btn-primary" data-track="start_trial">Start Free Trial</a>
-              <a href="#contact" class="btn btn-outline" data-track="request_demo">Request Demo</a>
-            </div>
-          </div>
-          <div class="hero-media">
-            <img src="assets/dashboard.svg" alt="AcmeFlow dashboard screenshot" width="720" height="480" loading="eager" />
-          </div>
-        </div>
-      </section>
+    <nav aria-label="chapters">
+      <button class="chip active" data-target="intro">Intro</button>
+      <button class="chip" data-target="childhood">Childhood</button>
+      <button class="chip" data-target="school">School</button>
+      <button class="chip" data-target="college">College</button>
+      <button class="chip" data-target="terry">Terry</button>
+      <button class="chip" data-target="comingout">Coming Out</button>
+      <button class="chip" data-target="now">Now</button>
+      <button class="chip" data-target="resources">Resources</button>
+    </nav>
 
-      <section id="features" class="section features" aria-labelledby="features-title">
-        <div class="container">
-          <h2 id="features-title" class="section-title">Key Features</h2>
-          <div class="feature-grid reveal">
-            <article class="card feature">
-              <img src="assets/icon-zap.svg" alt="Automation icon" width="48" height="48" />
-              <h3>Automated Workflows</h3>
-              <p>Build multi-step automations that connect Slack, Notion, Google Sheets, and more.</p>
-            </article>
-            <article class="card feature">
-              <img src="assets/icon-sync.svg" alt="Sync icon" width="48" height="48" />
-              <h3>Real-time Sync</h3>
-              <p>Keep your data up to date across all tools with reliable, bi-directional syncs.</p>
-            </article>
-            <article class="card feature">
-              <img src="assets/icon-bell.svg" alt="Bell icon" width="48" height="48" />
-              <h3>Smart Reminders</h3>
-              <p>Automated nudges and approvals so nothing slips through the cracks.</p>
-            </article>
-            <article class="card feature">
-              <img src="assets/icon-lock.svg" alt="Lock icon" width="48" height="48" />
-              <h3>Enterprise-grade Security</h3>
-              <p>SSO, encryption at rest and in transit, and granular access controls.</p>
-            </article>
-            <article class="card feature">
-              <img src="assets/icon-cog.svg" alt="Settings icon" width="48" height="48" />
-              <h3>No-code Builder</h3>
-              <p>Drag-and-drop steps to launch automations in minutes—no engineers required.</p>
-            </article>
-            <article class="card feature">
-              <img src="assets/icon-chart.svg" alt="Analytics icon" width="48" height="48" />
-              <h3>Analytics</h3>
-              <p>Track runs, success rates, and time saved to prove ROI to stakeholders.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+    <div class="grid">
+      <div class="content">
 
-      <section class="section stats" aria-label="Product statistics">
-        <div class="container stats-grid reveal">
-          <div class="stat">
-            <div class="metric">12,000+</div>
-            <div class="label">active teams</div>
-          </div>
-          <div class="stat">
-            <div class="metric">98%</div>
-            <div class="label">satisfaction rate</div>
-          </div>
-          <div class="stat">
-            <div class="metric">4.9/5</div>
-            <div class="label">average rating</div>
-          </div>
-        </div>
-      </section>
+        <article id="intro" class="stage">
+          <div class="meta-row"><div class="small">First person, honest voice</div></div>
+          <h2>Introduction</h2>
+          <p>I am writing this in the small hours. The city lights are tired and my tea has gone lukewarm. I write because a life held quiet becomes small. I write because I want someone like me to find this page and not feel alone. I am gay. I like men. I fell in love with Terry Liang.</p>
+          <p>That feels both simple and enormous. I do not want a drama. I only want truth. This is my story in scenes, in small entries, in the things I carried and the moments that made me who I am.</p>
+        </article>
 
-      <section id="pricing" class="section pricing" aria-labelledby="pricing-title">
-        <div class="container">
-          <h2 id="pricing-title" class="section-title">Plans for every team size</h2>
-          <div class="pricing-grid reveal">
-            <article class="card pricing-card">
-              <h3>Starter</h3>
-              <div class="price">$9<span>/mo</span></div>
-              <ul class="list">
-                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> 5 active workflows</li>
-                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> 1,000 runs/month</li>
-                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> Community support</li>
-              </ul>
-              <a href="#contact" class="btn btn-primary" data-track="pricing_starter">Get Started</a>
-            </article>
-            <article class="card pricing-card featured" aria-label="Most popular plan">
-              <div class="badge">Most Popular</div>
-              <h3>Growth</h3>
-              <div class="price">$29<span>/mo</span></div>
-              <ul class="list">
-                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> 20 active workflows</li>
-                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> 10,000 runs/month</li>
-                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> Email support</li>
-              </ul>
-              <a href="#contact" class="btn btn-primary" data-track="pricing_growth">Get Started</a>
-            </article>
-            <article class="card pricing-card">
-              <h3>Business</h3>
-              <div class="price">$99<span>/mo</span></div>
-              <ul class="list">
-                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> Unlimited workflows</li>
-                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> 100,000 runs/month</li>
-                <li><img src="assets/icon-check.svg" alt="" aria-hidden="true" /> Priority support</li>
-              </ul>
-              <a href="#contact" class="btn btn-primary" data-track="pricing_business">Get Started</a>
-            </article>
+        <article id="childhood" class="stage">
+          <div class="meta-row"><div class="badge">Childhood</div><div class="small">Ages 0–12</div></div>
+          <h2>Childhood</h2>
+          <p>I loved color first. My mother gave me crayons and I kept the pink for myself. My father liked practical things, but he smiled when I made paper animals. I collected stickers and kept them under my pillow. When other boys played rough games, I sat with scissors and glue and wonder.</p>
+          <p>I remember hiding a bright scarf in my backpack because I liked the way it moved. I remember thinking the world would be kinder if people could say what they truly felt. I did not know then how to say what I felt.</p>
+
+          <div class="diary-grid">
+            <div class="diary"><small>Age 8</small><div>I drew two boys holding hands. I kept the picture inside my desk.</div></div>
+            <div class="diary"><small>Age 11</small><div>I tried on my sister's ribbon and felt a calm I couldn't name. I untied it and folded it away.</div></div>
           </div>
-        </div>
-      </section>
+        </article>
 
-      <section class="section testimonials" aria-labelledby="testimonials-title">
-        <div class="container">
-          <h2 id="testimonials-title" class="section-title">Trusted by teams worldwide</h2>
-          <div class="testimonial-grid reveal">
-            <figure class="card testimonial">
-              <img class="avatar" src="assets/avatar-1.svg" alt="Photo of Priya Shah" width="64" height="64" />
-              <blockquote>
-                <em>“AcmeFlow saves us hours every week. Our approvals are automatic now.”</em>
-              </blockquote>
-              <figcaption>Priya Shah, Product Lead at Northstar</figcaption>
-            </figure>
-            <figure class="card testimonial">
-              <img class="avatar" src="assets/avatar-2.svg" alt="Photo of Marco Ruiz" width="64" height="64" />
-              <blockquote>
-                <em>“Setup took minutes. The ROI was immediate once we connected our stack.”</em>
-              </blockquote>
-              <figcaption>Marco Ruiz, Ops Manager at BrightPath</figcaption>
-            </figure>
-            <figure class="card testimonial">
-              <img class="avatar" src="assets/avatar-3.svg" alt="Photo of Lina Park" width="64" height="64" />
-              <blockquote>
-                <em>“The reliability and support are outstanding. Our data is always in sync.”</em>
-              </blockquote>
-              <figcaption>Lina Park, CTO at Kinetico</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
+        <article id="school" class="stage">
+          <div class="meta-row"><div class="badge">School</div><div class="small">Ages 12–18</div></div>
+          <h2>School Years</h2>
+          <p>At school, I learned how to hide. Teasing was a lesson. I learned to laugh when others did and to shrink when it mattered. Still, there were glances that lasted longer than they should. A boy's smile in the corridor could set my chest a little off balance.</p>
+          <p>I found poets in the library who wrote about strange loves and small freedoms. Their lines felt like windows. I read them with the lights off, holding a flashlight to the page as if the words were secret friends.</p>
+        </article>
 
-      <section id="contact" class="section contact" aria-labelledby="contact-title">
-        <div class="container contact-inner">
-          <h2 id="contact-title" class="section-title">Contact our team</h2>
-          <form id="contact-form" novalidate>
-            <div class="grid-2">
-              <div class="form-field">
-                <label for="fullName">Full Name</label>
-                <input id="fullName" name="fullName" type="text" autocomplete="name" required />
-                <p class="field-error" aria-live="polite"></p>
-              </div>
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" required />
-                <p class="field-error" aria-live="polite"></p>
-              </div>
-            </div>
-            <div class="grid-2">
-              <div class="form-field">
-                <label for="company">Company</label>
-                <input id="company" name="company" type="text" autocomplete="organization" />
-                <p class="field-error" aria-live="polite"></p>
-              </div>
-              <div class="form-field">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <p class="field-error" aria-live="polite"></p>
-              </div>
-            </div>
-            <button class="btn btn-primary btn-block" type="submit" aria-label="Send Message">Send Message</button>
-            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
-          </form>
-        </div>
-      </section>
-    </main>
+        <article id="college" class="stage">
+          <div class="meta-row"><div class="badge">College</div><div class="small">Early twenties</div></div>
+          <h2>College and Discovery</h2>
+          <p>College was the first time I felt the air change. I met people who named things I had not yet put words to. I joined a zine group and wrote small pieces about color and place. I felt seen by small groups and that made me brave enough to notice my feelings more clearly.</p>
+          <p>I remember a night in the student common room when I realized I could say the words out loud. I said them to myself first, then to a friend: I like men. The friend nodded like it was the plainer thing in the world. That nod felt like permission.</p>
+        </article>
 
-    <footer class="site-footer" aria-labelledby="footer-title">
-      <div class="container footer-inner">
-        <div class="footer-col">
-          <h3 id="footer-title" class="footer-logo">
-            <img src="assets/logo-mark.svg" alt="AcmeFlow mark" width="28" height="28" />
-            AcmeFlow
-          </h3>
-          <p>Connect your tools, automate tasks, and focus on what matters.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
+        <article id="terry" class="stage">
+          <div class="meta-row"><div class="badge">Terry</div><div class="small">The crush that changed everything</div></div>
+          <h2>Terry Liang</h2>
+          <p>Terry arrived in my life like a tune I couldn't get out of my head. He was quiet in a way that felt like room to breathe. He carried a thermos and a stack of music cassettes. He laughed with his whole mouth. He had a scar on his knuckle from fixing a bike and he told stories like he was making them up as he went.</p>
+          <p>I first noticed him in class when he corrected a misquote and then turned the conversation to an old singer I loved. He looked at me when I spoke and I felt seen. Small things mattered: the way he wore his coat, the way he tapped his foot while listening to records. I began to wait for him.</p>
+
+          <h3>How it began</h3>
+          <p>I asked to borrow a cassette. He said yes and pressed a mixtape into my hands. On my way home I held it like it was fragile treasure. I met him at the library a week later and he slid a note across the table: 'Do you want to hear more sometime?'</p>
+          <p>That note was the start. We walked home under a late sky. We talked about silly things and then not-silly things. He told me about his grandmother's recipes, I told him about the ribbon I kept. He listened. When he listened I grew braver.</p>
+
+          <h3>First gentle moments</h3>
+          <p>We studied together in the art room. I spilled tea on a sketch and he laughed in a way that made me show the ruined page. He drew a repair: a tiny painted strip that made the spill look like part of the work. He reached across the table to point out a color and our fingers brushed. It was the kind of touch that is both startling and ordinary. I felt the world tilt toward possibility.</p>
+          <div class="quote">"When Terry smiled, I forgot the sentences I meant to say. I learned new sentences instead."</div>
+
+          <h3>A quiet confession</h3>
+          <p>One evening, after a small show of prints, we walked by the river. The city hummed behind us. I told him I liked him. I worried it would crease us. He looked at me, thoughtful, then took my hand. He whispered that he'd been waiting for me to say it. I remember the steadiness of his palm. Saying the words made something uncurl inside me.</p>
+        </article>
+
+        <article id="comingout" class="stage">
+          <div class="meta-row"><div class="badge">Coming Out</div><div class="small">Family and friends</div></div>
+          <h2>Coming Out</h2>
+          <p>Telling my parents felt like a tide. I wrote a letter at first so the words would not evaporate. I put it on the kitchen table and waited. My mother read, then reached for me. My father asked questions that showed he wanted to understand. They did not always say the right thing, but they said they loved me.</p>
+          <p>Terry met them months later. He brought a small bouquet of wildflowers. My mother cried a little and then handed me a cup of tea like she did when I was small. After that, I began to measure time by the simple ways people show care.</p>
+        </article>
+
+        <article id="now" class="stage">
+          <div class="meta-row"><div class="badge">Now</div><div class="small">Work, art, and chosen family</div></div>
+          <h2>Now</h2>
+          <p>We live together in a small apartment with a balcony full of plants. Terry makes breakfast on Saturdays and I make playlists. We argue about the best way to fold laundry and then apologize with coffee. We have a ritual of writing one small note to each other every week. Mine say things like: You made the plants taller. You make color louder.</p>
+          <p>We go to Pride and we hold hands. We host friends and we listen to their stories. Some of our friends struggle. We show up. I work with a community center and Terry teaches music. We both find ways to give back to a younger version of ourselves.</p>
+
+          <h3>Small joys</h3>
           <ul>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li>The way he hums while washing dishes.</li>
+            <li>The mixtapes he makes with songs that remind him of summer markets.</li>
+            <li>The quiet mornings when we read on the couch and the cat falls asleep on our feet.</li>
           </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Follow</h4>
-          <div class="socials">
-            <a href="#" aria-label="LinkedIn">
-              <img src="assets/icon-linkedin.svg" alt="LinkedIn" width="20" height="20" />
-            </a>
-            <a href="#" aria-label="Twitter">
-              <img src="assets/icon-twitter.svg" alt="Twitter" width="20" height="20" />
-            </a>
-            <a href="#" aria-label="GitHub">
-              <img src="assets/icon-github.svg" alt="GitHub" width="20" height="20" />
-            </a>
+        </article>
+
+        <article id="resources" class="stage">
+          <div class="meta-row"><div class="badge">Resources</div><div class="small">Support and reading</div></div>
+          <h2>Resources</h2>
+          <p>If you recognize yourself in these pages, find a safe space to talk. Look for local queer centers, helplines, and peers who can listen. If you feel at risk, contact local emergency services. Below are books and groups that helped me understand my feelings.</p>
+          <ul>
+            <li>Memoirs and essays about queer life and coming of age.</li>
+            <li>Local youth groups and community arts programs.</li>
+            <li>Hotlines that offer confidential support.</li>
+          </ul>
+        </article>
+
+        <footer>
+          <p>I write this not to be finished but to be true. If you are reading, remember you are allowed to keep your colors. You are allowed to say your name out loud.</p>
+        </footer>
+
+      </div>
+
+      <aside class="aside">
+        <div class="card">
+          <div class="profile">
+            <div class="avatar">VP</div>
+            <div>
+              <div style="font-weight:800">Vaibhava Pulavarthi</div>
+              <div class="small">I write in the first person. This is my life as I've lived it in this story.</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px;font-size:14px;color:var(--muted)">
+            <div style="margin-bottom:8px">Quick facts</div>
+            <div class="small">Artist, volunteer, collector of mixtapes. Lives with Terry Liang.</div>
+          </div>
+
+          <div style="margin-top:12px">
+            <div style="font-weight:700;margin-bottom:8px">Tags</div>
+            <div><span class="badge">first-person</span><span class="badge">romance</span><span class="badge">LGBTQ+</span><span class="badge">art</span></div>
           </div>
         </div>
-      </div>
-      <div class="footer-divider"></div>
-      <div class="container copyright">© 2025 AcmeFlow Technologies. All rights reserved.</div>
-    </footer>
 
-    <script src="app.js"></script>
-  </body>
-  </html>
+        <div style="height:18px"></div>
 
+        <div class="card">
+          <div style="font-weight:700">Moment player</div>
+          <div class="small" style="margin-top:6px">Hear short narrated lines from my life with Terry.</div>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <button id="playBtn" class="chip">Play</button>
+            <button id="stopBtn" class="chip">Stop</button>
+          </div>
+        </div>
 
+        <div style="height:18px"></div>
+
+        <div class="card">
+          <div style="font-weight:700">Photos and prints</div>
+          <div class="gallery" style="margin-top:8px">
+            <div class="photo">print</div>
+            <div class="photo">poster</div>
+            <div class="photo">mural</div>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+  </main>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <div class="box">
+      <button id="closeModal" style="float:right;border:none;background:none;font-weight:700;font-size:18px;cursor:pointer">×</button>
+      <h3>Excerpt</h3>
+      <p id="modalText">Short line reads here.</p>
+    </div>
+  </div>
+
+  <script>
+    // chips navigation
+    const chips = Array.from(document.querySelectorAll('.chip'))
+    chips.forEach(ch=>{
+      ch.addEventListener('click', e=>{
+        chips.forEach(c=>c.classList.remove('active'))
+        e.currentTarget.classList.add('active')
+        const tgt = document.getElementById(e.currentTarget.dataset.target)
+        if(tgt) tgt.scrollIntoView({behavior:'smooth',block:'center'})
+      })
+    })
+
+    // reveal and highlight
+    const stages = Array.from(document.querySelectorAll('.stage'))
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting){
+          ent.target.classList.add('visible')
+          const id = ent.target.id
+          chips.forEach(c=>c.classList.toggle('active', c.dataset.target===id))
+        }
+      })
+    },{threshold:0.28})
+    stages.forEach(s=>observer.observe(s))
+
+    // speech scenes, first-person lines including Terry
+    const scenes = [
+      'I remember holding Terry\'s mixtape like a small treasure.',
+      'We walked by the river and I told him I liked him. He took my hand.',
+      'On Saturday mornings Terry hums while he makes toast and the sound fills our kitchen.'
+    ]
+
+    const playBtn = document.getElementById('playBtn')
+    const stopBtn = document.getElementById('stopBtn')
+    const modal = document.getElementById('modal')
+    const modalText = document.getElementById('modalText')
+    const closeModal = document.getElementById('closeModal')
+
+    playBtn.addEventListener('click', ()=>{
+      if(window.speechSynthesis){
+        const text = scenes[Math.floor(Math.random()*scenes.length)]
+        modalText.textContent = text
+        modal.classList.add('open')
+        const u = new SpeechSynthesisUtterance(text)
+        u.rate = 1
+        u.pitch = 1
+        speechSynthesis.speak(u)
+      } else {
+        modalText.textContent = 'Audio not supported in this browser.'
+        modal.classList.add('open')
+      }
+    })
+
+    stopBtn.addEventListener('click', ()=>{
+      if(window.speechSynthesis){ speechSynthesis.cancel() }
+      modal.classList.remove('open')
+    })
+    closeModal.addEventListener('click', ()=>{ modal.classList.remove('open') })
+
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('.stage').forEach(s=>s.style.transition='none')
+    }
+  </script>
+</body>
+</html>
